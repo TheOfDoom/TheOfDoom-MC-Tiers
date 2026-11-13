@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TheOf’Doom MC Tiers</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#0a0410;--card:#160a1f;--text:#f6ecff;--mute:#a68bb8;--line:#3a1b4d;--acc:#ff1aff;--accT:#14001a}
+:root[data-theme="light"]{--bg:#fbefff;--card:#fff;--text:#1a0524;--mute:#7a5a8c;--line:#ecd0f7;--acc:#c400c4;--accT:#fff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Sarabun,sans-serif;line-height:1.4}
+.wrap{max-width:860px;margin:0 auto;padding:16px 14px 40px}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+h1{font-size:20px;margin:0}h1 span{color:var(--acc)}
+.sub{color:var(--mute);font-size:13px;margin:2px 0 0}
+button{font:inherit;cursor:pointer;color:inherit}
+.ic{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.modes{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:8px;scrollbar-width:none}
+.modes button{flex:none;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px}
+.modes button.on{background:var(--acc);color:var(--accT);border-color:var(--acc)}
+.bar{display:flex;gap:8px;margin-bottom:12px}
+input{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:9px 12px;font:inherit}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{background:var(--card);border:0;padding:0 12px}
+.seg button.on{background:var(--acc);color:var(--accT)}
+.row{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;width:100%;text-align:left}
+.rk{width:34px;font-weight:700;text-align:center;color:var(--mute)}
+.r1{color:#e8b100}.r2{color:#9aa3b5}.r3{color:#c27c3a}
+.av{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-weight:700;color:#fff;flex:none}
+.nm{flex:1;min-width:0}.nm b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nm small{color:var(--mute)}
+.reg{font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px;color:#fff}
+.chips{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;max-width:46%}
+.tc{font-size:11px;font-weight:700;padding:3px 6px;border-radius:6px;color:#fff;white-space:nowrap}
+.cols{display:grid;gap:10px}
+.col{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.col h3{margin:0;padding:8px 12px;color:#fff;font-size:15px}
+.col div{padding:8px 10px;display:flex;flex-wrap:wrap;gap:6px}
+.col button{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:5px 10px;font-size:13px}
+.col .ht{border-color:var(--acc)}
+.empty{color:var(--mute);font-size:13px}
+dialog{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:16px;padding:18px;width:min(92vw,380px)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.g div{background:var(--bg);border-radius:10px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.fm{display:grid;gap:10px;margin:12px 0}.fm label{display:grid;gap:4px;font-size:13px;color:var(--mute)}
+select{background:var(--bg);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:9px 12px;font:inherit}
+.go{background:var(--acc);color:var(--accT);border-color:var(--acc);flex:1}
+.logo{width:44px;height:44px;image-rendering:pixelated}
+body{background-image:conic-gradient(#ff1aff10 25%,transparent 0 50%,#ff1aff10 0 75%,transparent 0);background-size:48px 48px}
+h1 span{text-shadow:0 0 14px var(--acc)}
+.row:hover{border-color:var(--acc)}
+.note{margin-top:20px;color:var(--mute);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div><div style="display:flex;align-items:center;gap:10px"><img class="logo" alt="" src="data:image/png;base64,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"><div><h1>TheOf’Doom <span>MC Tiers</span></h1><p class="sub">PvP Tier List · Minecraft Bedrock</p></div></div></div>
+ <div style="display:flex;gap:6px"><button class="ic" id="adm" hidden>🔑 แอดมิน</button><button class="ic" id="th">🌓</button></div>
+</header>
+<div class="modes" id="modes"></div>
+<div class="bar">
+ <input id="q" placeholder="ค้นหาชื่อผู้เล่น…">
+ <div class="seg"><button id="v1" class="on">อันดับ</button><button id="v2">Tier</button></div>
+</div>
+<div id="out"></div>
+
+</div>
+<dialog id="dlg"></dialog>
+<dialog id="adlg"><b style="font-size:17px">🔑 แผงแอดมิน – ให้ Tier</b>
+<div class="fm">
+<label>ชื่อผู้เล่น<input id="an" list="pl" placeholder="เลือกหรือพิมพ์ชื่อใหม่"></label><datalist id="pl"></datalist>
+<label>ภูมิภาค<select id="ar"></select></label>
+<label>โหมด<select id="am"></select></label>
+<label>Tier<select id="at"></select></label>
+<div style="display:flex;gap:8px"><button class="ic go" id="asv">บันทึก Tier</button><button class="ic" id="adel">ลบผู้เล่น</button></div>
+<small id="ast" style="color:var(--mute)"></small>
+</div><button class="ic" style="width:100%" onclick="adlg.close()">ปิด</button></dialog>
+<script>
+const MODES={all:'Overall',beast:'Beast',axe:'Axe',uhc:'UHC',dpot:'Diamond Pot',nop:'Netherite OP',mace:'Mace',cart:'Cart',spear:'Spear',dsmp:'Diamond SMP',nsmp:'Netherite SMP',crystal:'Crystal PVP'};
+const SHORT={beast:'Beast',axe:'Axe',uhc:'UHC',dpot:'D.Pot',nop:'N.OP',mace:'Mace',cart:'Cart',spear:'Spear',dsmp:'D.SMP',nsmp:'N.SMP',crystal:'Crystal'};
+const PTS={HT1:60,LT1:44,HT2:32,LT2:20,HT3:10,LT3:6,HT4:4,LT4:3,HT5:2,LT5:1};
+const TCOL={1:'#e0a400',2:'#8a94a8',3:'#b8702e',4:'#3a7bd5',5:'#4a9a6a'};
+const RCOL={AS:'#d9534f',NA:'#3a7bd5',EU:'#4a9a6a',SA:'#e08a00',AU:'#8a5ad0'};
+let PLAYERS=[];
+let mode='all',view=1,q='';
+const pts=p=>Object.values(p.t).reduce((s,x)=>s+PTS[x],0);
+const tn=t=>+t[2];
+const chip=(m,t)=>`<span class="tc" style="background:${TCOL[tn(t)]}">${m!=null?SHORT[m]+' ':''}${t}</span>`;
+const col=n=>{let h=0;for(const c of n)h=(h*31+c.charCodeAt(0))%360;return`hsl(${h} 55% 45%)`};
+function list(){
+ let a=PLAYERS.filter(p=>p.n.toLowerCase().includes(q.toLowerCase()));
+ if(mode!=='all')a=a.filter(p=>p.t[mode]);
+ const sc=p=>mode==='all'?pts(p):PTS[p.t[mode]];
+ return a.sort((x,y)=>sc(y)-sc(x));
+}
+function render(){
+ const a=list(),o=document.getElementById('out');
+ if(!a.length){o.innerHTML='<p class="empty">ยังไม่มีผู้เล่น – แอดมินกด 🔑 เพื่อเพิ่มและให้ Tier</p>';return}
+ if(view===1){
+  o.innerHTML=a.map((p,i)=>{
+   const ch=mode==='all'?Object.entries(p.t).map(([m,t])=>chip(m,t)).join(''):chip(null,p.t[mode]);
+   return`<button class="row" data-n="${p.n}"><div class="rk r${i+1}">${i+1}</div><div class="av" style="background:${col(p.n)}">${p.n[0]}</div><div class="nm"><b>${p.n}</b><small>${mode==='all'?pts(p)+' แต้ม':'Bedrock'}</small></div><span class="reg" style="background:${RCOL[p.r]}">${p.r}</span><div class="chips">${ch}</div></button>`}).join('');
+ }else{
+  const m=mode==='all'?'crystal':mode;
+  const b=PLAYERS.filter(p=>p.t[m]&&p.n.toLowerCase().includes(q.toLowerCase()));
+  o.innerHTML=`<p class="sub" style="margin-bottom:8px">โหมด: ${MODES[m]}${mode==='all'?' (เลือกโหมดด้านบนเพื่อเปลี่ยน)':''}</p><div class="cols">`+[1,2,3,4,5].map(n=>{
+   const ps=b.filter(p=>tn(p.t[m])===n).sort((x,y)=>PTS[y.t[m]]-PTS[x.t[m]]);
+   return`<div class="col"><h3 style="background:${TCOL[n]}">Tier ${n}</h3><div>${ps.map(p=>`<button data-n="${p.n}" class="${p.t[m][0]==='H'?'ht':''}">${p.t[m]} · ${p.n}</button>`).join('')||'<span class="empty">—</span>'}</div></div>`}).join('')+'</div>';
+ }
+}
+document.getElementById('modes').innerHTML=Object.entries(MODES).map(([k,v])=>`<button data-m="${k}" class="${k===mode?'on':''}">${v}</button>`).join('');
+document.getElementById('modes').onclick=e=>{const k=e.target.dataset.m;if(!k)return;mode=k;[...e.currentTarget.children].forEach(b=>b.classList.toggle('on',b.dataset.m===k));render()};
+document.getElementById('q').oninput=e=>{q=e.target.value;render()};
+const setV=n=>{view=n;v1.classList.toggle('on',n===1);v2.classList.toggle('on',n===2);render()};
+v1.onclick=()=>setV(1);v2.onclick=()=>setV(2);
+document.getElementById('out').onclick=e=>{
+ const n=e.target.closest('[data-n]')?.dataset.n;if(!n)return;
+ const p=PLAYERS.find(x=>x.n===n),d=document.getElementById('dlg');
+ d.innerHTML=`<div style="display:flex;gap:12px;align-items:center"><div class="av" style="background:${col(p.n)};width:52px;height:52px;font-size:22px">${p.n[0]}</div><div><b style="font-size:18px">${p.n}</b><br><span class="reg" style="background:${RCOL[p.r]}">${p.r}</span> <small style="color:var(--mute)">${pts(p)} แต้ม</small></div></div><div class="g">${Object.entries(MODES).filter(([k])=>k!=='all').map(([k,v])=>`<div>${v}${p.t[k]?chip(null,p.t[k]):'<span class="empty">—</span>'}</div>`).join('')}</div><button class="ic" style="width:100%;margin-top:14px" onclick="dlg.close()">ปิด</button>`;
+ d.showModal();
+};
+document.getElementById('dlg').onclick=e=>{if(e.target.id==='dlg')e.target.close()};
+th.onclick=()=>{const r=document.documentElement;r.dataset.theme=r.dataset.theme==='light'?'dark':'light'};
+let dbDoc=null;
+const opt=(v,t)=>`<option value="${v}">${t}</option>`;
+ar.innerHTML=Object.keys(RCOL).map(r=>opt(r,r)).join('');
+am.innerHTML=Object.entries(MODES).filter(([k])=>k!=='all').map(([k,v])=>opt(k,v)).join('');
+at.innerHTML=opt('','— ไม่มี Tier (ลบ) —')+Object.keys(PTS).map(t=>opt(t,t)).join('');
+const find=n=>PLAYERS.find(p=>p.n.toLowerCase()===n.trim().toLowerCase());
+function sync(){const p=find(an.value);if(p){ar.value=p.r;at.value=p.t[am.value]||'';ast.textContent='ผู้เล่นเดิม · '+pts(p)+' แต้ม'}else ast.textContent=an.value.trim()?'จะเพิ่มเป็นผู้เล่นใหม่':''}
+an.oninput=sync;am.onchange=sync;
+adm.onclick=()=>{pl.innerHTML=PLAYERS.map(p=>`<option value="${p.n}">`).join('');sync();adlg.showModal()};
+async function save(){
+ try{if(!dbDoc)throw{message:'ยังไม่ได้เชื่อมต่อฐานข้อมูล'};await dbDoc.set({players:PLAYERS});ast.textContent='✅ บันทึกแล้ว'}
+ catch(e){ast.textContent='❌ บันทึกไม่สำเร็จ: '+(e.message||e.code)}
+}
+asv.onclick=()=>{
+ const n=an.value.trim();if(!n){ast.textContent='กรุณาใส่ชื่อผู้เล่น';return}
+ let p=find(n);if(!p){p={n,r:ar.value,t:{}};PLAYERS=[...PLAYERS,p]}
+ p.r=ar.value;if(at.value)p.t[am.value]=at.value;else delete p.t[am.value];
+ render();save();
+};
+let armed=false;
+adel.onclick=()=>{
+ const p=find(an.value);if(!p){ast.textContent='ไม่พบผู้เล่น';return}
+ if(!armed){armed=true;adel.textContent='กดอีกครั้งเพื่อยืนยันลบ';setTimeout(()=>{armed=false;adel.textContent='ลบผู้เล่น'},3000);return}
+ armed=false;adel.textContent='ลบผู้เล่น';PLAYERS=PLAYERS.filter(x=>x!==p);an.value='';render();save();
+};
+(async()=>{
+ try{
+  if(typeof claude==='undefined')return;
+  const [user,db]=await Promise.all([claude.use('user'),claude.use('db')]);
+  if(!db)return;
+  dbDoc=db.doc('site/data');
+  dbDoc.onSnapshot(s=>{const d=s.exists?s.data():null;if(d&&Array.isArray(d.players)){PLAYERS=d.players;render()}});
+  if(user&&await user.canEdit())adm.hidden=false;
+ }catch(e){}
+})();
+render();
+</script>
+</body>
+</html>
